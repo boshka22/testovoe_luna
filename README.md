@@ -23,20 +23,14 @@ cp .env.example .env
 docker-compose up --build
 ```
 
-- API: **http://localhost:8000**
 - Swagger: **http://localhost:8000/docs**
 
 ---
 
 ## Аутентификация
 
-Все запросы требуют заголовок `X-API-Key`:
+Все запросы требуют заголовок X-API-Key (задаётся в .env).
 
-```bash
-curl -H "X-API-Key: secret-api-key-change-me" http://localhost:8000/buildings
-```
-
-Ключ задаётся в `.env` → `API_KEY`.
 
 ---
 
@@ -52,12 +46,14 @@ curl -H "X-API-Key: secret-api-key-change-me" http://localhost:8000/buildings
 
 | Метод | URL | Описание |
 |-------|-----|----------|
-| GET | `/organizations/{id}` | Карточка организации |
-| GET | `/organizations?building_id=1` | По зданию |
-| GET | `/organizations?activity_id=1` | По деятельности (с дочерними) |
-| GET | `/organizations?search=текст` | Поиск по названию |
-| GET | `/organizations?lat=55.75&lon=37.61&radius_km=1` | В радиусе |
-| GET | `/organizations?min_lat=&max_lat=&min_lon=&max_lon=` | В прямоугольнике |
+GET /organizations/{id}                              — карточка
+GET /organizations?building_id=1                     — по зданию
+GET /organizations?activity_id=1                     — по деятельности (включая дочерние)
+GET /organizations?search=текст                      — поиск по названию
+GET /organizations?lat=55.75&lon=37.61&radius_km=1   — в радиусе
+GET /organizations?min_lat=&max_lat=&min_lon=&max_lon= — прямоугольник
+
+Пагинация: ?skip=0&limit=20. Фильтры взаимоисключающие — 400 при конфликте.
 
 ---
 
