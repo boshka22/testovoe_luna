@@ -53,7 +53,6 @@ docker-compose up --build
 | GET | `/organizations?lat=55.75&lon=37.61&radius_km=1` | В радиусе |
 | GET | `/organizations?min_lat=&max_lat=&min_lon=&max_lon=` | Прямоугольник |
 
-Пагинация: ?skip=0&limit=20. Фильтры взаимоисключающие — 400 при конфликте.
 
 ---
 
