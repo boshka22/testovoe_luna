@@ -1,8 +1,8 @@
-# Organization Directory API
+# 📋 Organization Directory API
 
 Тестовое задание. REST API справочника организаций с поиском по зданию, виду деятельности и геопозиции.
 
-## Стек
+## 🛠 Стек
 
 | Слой        | Технология                      |
 |-------------|---------------------------------|
@@ -46,12 +46,12 @@ docker-compose up --build
 
 | Метод | URL | Описание |
 |-------|-----|----------|
-GET /organizations/{id}                              — карточка
-GET /organizations?building_id=1                     — по зданию
-GET /organizations?activity_id=1                     — по деятельности (включая дочерние)
-GET /organizations?search=текст                      — поиск по названию
-GET /organizations?lat=55.75&lon=37.61&radius_km=1   — в радиусе
-GET /organizations?min_lat=&max_lat=&min_lon=&max_lon= — прямоугольник
+| GET | `/organizations/{id}` | Карточка организации |
+| GET | `/organizations?building_id=1` | По зданию |
+| GET | `/organizations?activity_id=1` | По деятельности (включая дочерние) |
+| GET | `/organizations?search=текст` | Поиск по названию |
+| GET | `/organizations?lat=55.75&lon=37.61&radius_km=1` | В радиусе |
+| GET | `/organizations?min_lat=&max_lat=&min_lon=&max_lon=` | Прямоугольник |
 
 Пагинация: ?skip=0&limit=20. Фильтры взаимоисключающие — 400 при конфликте.
 
